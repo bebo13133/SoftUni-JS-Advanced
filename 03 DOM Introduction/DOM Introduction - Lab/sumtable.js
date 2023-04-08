@@ -4,4 +4,6 @@ function sumTable() {
             return acc + Number(x.textContent)
         }, 0)
     document.getElementById('sum').textContent = sumElement
+
+    
 }

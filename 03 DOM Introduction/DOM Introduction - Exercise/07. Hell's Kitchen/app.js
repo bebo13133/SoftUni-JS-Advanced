@@ -14,32 +14,28 @@ function solve() {
 
          for (let worker of workerInfo.split(', ')) {
             let [workerName, salaryWorker] = worker.split(' ').map(x => isNaN(x) ? x : Number(x))
-            if (!bestList.hasOwnProperty(restourant)) {
-               bestList[restourant] = {}
-            }
-            if (bestList.hasOwnProperty(restourant)) {
-               bestList[restourant][workerName] = salaryWorker
-            }
+            if (!bestList.hasOwnProperty(restourant)) bestList[restourant] = {};
+
+            bestList[restourant][workerName] = salaryWorker
          }
       }
-
       let entries = Object.entries(bestList).map(element => {
-            let name = element[0]
-            let workersLine = Object.values(element[1]).map(y=>{            
-               totalSalary += Number(y)
-            })
-            avgSalarary = totalSalary / workersLine.length
-            if (avgSalarary > currSalary) {
-               currSalary = avgSalarary
-               bestWorker = name
-               totalSalary = 0
-            }
-
-         })
+         let name = element[0]
+         let workersLine = Object.values(element[1]).map(y => {
+            totalSalary += Number(y)
+         });
+         avgSalarary = totalSalary / workersLine.length
+         if (avgSalarary > currSalary) {
+            currSalary = avgSalarary
+            bestWorker = name
+            totalSalary = 0
+         };
+      });
       let bestRestourant = Object.entries(bestList[bestWorker]).sort((a, b) => b[1] - a[1]);
 
       let finalResult = bestRestourant.reduce((acc, x) => {
-         return acc += `Name: ${x[0]} With Salary: ${x[1]} `}, "");
+         return acc += `Name: ${x[0]} With Salary: ${x[1]} `
+      }, "");
 
       document.querySelector("#bestRestaurant p").textContent = `Name: ${bestWorker} Average Salary: ${currSalary.toFixed(2)} Best Salary: ${(bestRestourant[0][1].toFixed(2))}`
       document.querySelector('#workers p').textContent = finalResult

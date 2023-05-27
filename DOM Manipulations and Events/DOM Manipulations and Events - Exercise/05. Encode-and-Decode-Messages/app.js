@@ -3,7 +3,7 @@ function encodeAndDecodeMessages() {
     const buttons = [...document.querySelectorAll('button')].forEach(button => button.addEventListener('click', onClick));
     function onClick(event) {
         const inputText = event.target.parentElement.querySelector('textarea');
-        if (inputText.value != '') {
+     
             if (event.target.textContent === 'Encode and send it') {
                 console.log("decodeText")
                 const decodeText = (inputText.value).split('').reduce((acc, char) => {
@@ -18,6 +18,6 @@ function encodeAndDecodeMessages() {
                 acc += String.fromCharCode(char.charCodeAt(0) - 1)
               return acc}, "");
             textAreas[1].value = encodeText
-        }
+
     }
 }

@@ -11,15 +11,13 @@ function attachEventsListeners() {
     const hoursInput = document.getElementById('hours');
     const secondsInput = document.getElementById('seconds')
 
-
-
     Array.from(document.querySelectorAll('input[type="button"]')).forEach((x) => x
         .addEventListener('click', (event) => {
             const input = event.target.parentElement.querySelector('input[type="text"]')
             const inputValue = Number(input.value);
             const idInput = input.id
 
-            const timeConvert = convert(inputValue, idInput)
+            const timeConvert = convert(inputValue, idInput);
 
             daysInput.value = timeConvert.days;
             hoursInput.value = timeConvert.hours;
@@ -27,7 +25,6 @@ function attachEventsListeners() {
             secondsInput.value = timeConvert.seconds;
 
         }));
-
 
     function convert(value, id) {
         const day = value / timeObj[id]
@@ -38,8 +35,6 @@ function attachEventsListeners() {
             minutes: day * timeObj.minutes,
             seconds: day * timeObj.seconds,
         };
-
-
-    }
-
+    };
+    Array.from(document.querySelectorAll('input[type="text"]')).forEach((x)=>x.value = "");
 }

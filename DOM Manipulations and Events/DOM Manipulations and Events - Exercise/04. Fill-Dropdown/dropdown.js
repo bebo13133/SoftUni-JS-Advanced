@@ -4,8 +4,7 @@ function addItem() {
     const optionField = document.createElement('option')
     optionField.text = text.value;
     optionField.value = inputValue.value;
-    document.getElementById('menu')
-    .appendChild(optionField)
+    document.getElementById('menu').appendChild(optionField)
     text.value = '';
     inputValue.value = '';
 }

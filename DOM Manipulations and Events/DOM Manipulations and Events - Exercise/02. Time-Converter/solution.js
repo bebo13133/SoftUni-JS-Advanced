@@ -5,20 +5,13 @@ function attachEventsListeners() {
         minutes: 1440,
         seconds: 86400,
     };
-    
-    const daysInput = document.getElementById('days');
-    const minutesInput = document.getElementById('minutes');
-    const hoursInput = document.getElementById('hours');
-    const secondsInput = document.getElementById('seconds')
 
-    Array.from(document.querySelectorAll('input[type="button"]')).forEach((x) => x
-        .addEventListener('click', (event) => {
-            const input = event.target.parentElement.querySelector('input[type="text"]')
+    Array.from(document.querySelectorAll('input[type="button"]')).forEach((x) =>
+        x.addEventListener('click', (event) => {
+            const input = event.target.parentElement.querySelector('input[type="text"]');
             const timeConvert = convert(input.value, input.id);
 
-            for(let key in timeConvert){
-                document.getElementById(key).value = timeConvert[key]
-            }
+            for (let key in timeConvert) document.getElementById(key).value = timeConvert[key];
         }));
 
     function convert(value, id) {

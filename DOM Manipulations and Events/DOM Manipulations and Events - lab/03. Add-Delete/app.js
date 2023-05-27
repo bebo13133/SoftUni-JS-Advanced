@@ -13,8 +13,8 @@ function addItem() {
     const deleteBtn = document.createElement('a');
     deleteBtn.href = '#';
     deleteBtn.textContent="[Delete]"
-    deleteBtn.addEventListener('click', (e)=>newLi.remove());
+    deleteBtn.addEventListener('click', (e)=>e.target.parentElement.remove());
     newLi.appendChild(deleteBtn);
 
     inputElements.value = "";
-}
+} 

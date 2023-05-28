@@ -1,76 +1,39 @@
 function solve() {
-  const [generateBtn, buyBtn] = Array.from(document.querySelectorAll('button'));
-  const [input, output] = Array.from(document.querySelectorAll('textarea'));
-  const tbody = document.querySelector('tbody');
+	let [generate, buy] = document.getElementsByTagName("button")
+	generate.addEventListener("click", () => {
+		let products = JSON.parse(document.querySelectorAll("textarea")[0].value)
 
-  generateBtn.addEventListener('click', generate);
-  buyBtn.addEventListener('click', buy);
+		products.forEach(product => {
+			let { name, img, price, decFactor } = product
+			let tr = `<tr>\n
+			<td><img src=${img}></td>\n
+			<td><p>${name}</p></td>\n
+			<td><p>${price}</p></td>\n
+			<td><p>${decFactor}</p></td>\n
+			<td><input type="checkbox"/></td>\n
+			</tr>`
+			document.querySelectorAll("tbody")[0].insertAdjacentHTML("beforeend", tr)
+		})
+		document.querySelectorAll("textarea")[0].textContent=""
+	})
+	document.querySelectorAll("textarea")[0].value = ""
+	buy.addEventListener("click", () => {
+		let [products, prices, factors] = [[], [], []]
+		Array.from(document.getElementsByTagName("input")).forEach(x => {
+			if (x.checked) {
+				let parentElement = x.parentElement.parentElement
+				let [name, price, factor] = parentElement.querySelectorAll("td p")
+				name = name.textContent
+				price = Number(price.textContent)
+				factor = Number(factor.textContent)
 
-  const items = []; // closure
-
-  function buy() {
-    let list = [];
-    let total = 0;
-    let decoration = 0;
-    let bought = items.filter((i) => i.isChecked());
-    
-    for (let item of bought) {
-      list.push(item.name);
-      total += Number(item.price);
-      decoration += Number(item.decFactor);
-    }
-    decoration /= bought.length;
-    
-    output.value = [
-      `Bought furniture: ${list.join(', ')}`,
-      `Total price: ${total.toFixed(2)}`,
-      `Average decoration factor: ${decoration}`,
-    ].join('\n');
-  }
-
-  function generate() {
-    const data = JSON.parse(input.value);
-
-    for (let item of data) {
-      const row = document.createElement('tr');
-
-      row.appendChild(createColumn('img', item.img)); // Image column
-      row.appendChild(createColumn('p', item.name)); // Name column
-      row.appendChild(createColumn('p', item.price)); // Price column
-      row.appendChild(createColumn('p', item.decFactor)); // Decoration column
-
-      // Input column
-      const c5 = document.createElement('td');
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      c5.appendChild(checkbox);
-      row.appendChild(c5);
-
-      tbody.appendChild(row);
-
-      items.push({
-        ...item,
-        isChecked,
-      });
-
-      function isChecked() {
-        return checkbox.checked;
-      }
-    }
-  }
-
-  function createColumn(type, content) {
-    const result = document.createElement('td');
-    let inner;
-
-    if (type == 'img') {
-      inner = document.createElement('img');
-      inner.src = content;
-    } else {
-      inner = document.createElement('p');
-      inner.textContent = content;
-    }
-    result.appendChild(inner);
-    return result;
-  }
+				products.push(name)
+				prices.push(price)
+				factors.push(factor)
+			}
+		})
+		let totalPrice = prices.reduce((a, b) => a + b, 0)
+		let factorial = factors.reduce((a, b) => a + b, 0) / factors.length
+		document.querySelectorAll("textarea")[1].textContent = `Bought furniture: ${products.join(", ")}\nTotal price: ${totalPrice.toFixed(2)}\nAverage decoration factor: ${factorial}`
+	})
 }

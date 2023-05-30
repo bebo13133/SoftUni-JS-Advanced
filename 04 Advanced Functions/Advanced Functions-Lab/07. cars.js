@@ -4,7 +4,7 @@ function cars(input) {
         create: (name, inherit, parentName) => { data[name] = inherit ? Object.create(data[parentName]) : {} },
         set: (name, key, value) => { data[name][key] = value },
         print: (name) => {
-            const entry = [];
+            const entry = []
             for (let key in data[name]) entry.push(`${key}:${data[name][key]}`);
             console.log(entry.join(','));
         },
@@ -26,4 +26,5 @@ cars(['create c1',
     'set c2 model new',
     'print c1',
     'print c2'])
+    
 

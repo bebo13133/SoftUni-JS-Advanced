@@ -25,8 +25,7 @@ function validate() {
         }
         if (checkBox.checked) {
             const copmanyId = document.getElementById('companyNumber');
-            if (!/^[0-9]{4}$/.test(copmanyId.value)) invalidFields.push(copmanyId);
-            
+            if (!/^[0-9]{4}$/.test(copmanyId.value)) invalidFields.push(copmanyId);  
         };
   
         invalidFields.forEach(field => field.style.borderColor = 'red');

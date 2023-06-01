@@ -7,27 +7,27 @@ function validate() {
 
     function onClick(event) {
         event.preventDefault();
-        const invalidFields = [];
+        const inValid = [];
         const checkBox = document.querySelector('#company');
         const userName = document.getElementById('username');
 
-        if (!/^[A-Za-z0-9]{3,20}$/.test(userName.value)) invalidFields.push(userName);
+        if (!/^[A-Za-z0-9]{3,20}$/.test(userName.value)) inValid.push(userName);
         // /^[^@.]+@[^@]*\.[^@]+$/;
         const mailField = document.getElementById('email');
 
-        if (!/^[^@.]+@[^@]*\.[^@]*$/.test(mailField.value)) invalidFields.push(mailField);
+        if (!/^[^@.]+@[^@]*\.[^@]*$/.test(mailField.value)) inValid.push(mailField);
         const pass = document.getElementById('password');
         const confirmPass = document.getElementById('confirm-password');
 
         if (!/^[\w]{5,15}$/.test(pass.value) || confirmPass.value !== pass.value || confirmPass.value === '')
-            (invalidFields.push(pass)), (invalidFields.push(confirmPass));
+            (inValid.push(pass)), (inValid.push(confirmPass));
 
         if (checkBox.checked) {
             const copmanyId = document.getElementById('companyNumber');
-            if (!/^[0-9]{4}$/.test(copmanyId.value)) invalidFields.push(copmanyId);
+            if (!/^[0-9]{4}$/.test(copmanyId.value)) inValid.push(copmanyId);
         };
 
-        invalidFields.forEach(field => field.style.borderColor = 'red');
-        !invalidFields.length ? document.querySelector('#valid').style.display = 'block' : document.querySelector('#valid').style.display = 'none';
+        inValid.forEach(field => field.style.borderColor = 'red');
+        !inValid.length ? document.querySelector('#valid').style.display = 'block' : document.querySelector('#valid').style.display = 'none';
     }
 }

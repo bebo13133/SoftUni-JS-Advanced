@@ -1,18 +1,13 @@
-function areaCalculator (areaInput,volInput, input){
+function areaCalculator(area, vol, input) {
 
-   const dataInput = JSON.parse(input).map(element=>({
-         area: areaInput.call(element),
-         volume: volInput.call(element),
-    }));
-    return dataInput
+    return JSON.parse(input).map((y) => ({ area: area.call(y), volume: vol.call(y), }));
 }
 
 function area() {
-    return Math.abs(this.x * this.y);
-}
-
-function vol() {
-    return Math.abs(this.x * this.y * this.z);
+     return Math.abs(this.x * this.y);
+     }
+function vol() { 
+    return Math.abs(this.x * this.y * this.z); 
 }
 
 
@@ -21,4 +16,4 @@ console.table(areaCalculator(area, vol, `[
     {"x":"7","y":"7","z":"10"},
     {"x":"5","y":"2","z":"10"}
     ]`
-    ))
+))

@@ -1,6 +1,7 @@
 function filterEmployees(input, criteria) {
-    const [employe, value] = criteria.split('-')
-    return JSON.parse(input).filter((x) => x[employe]==value || criteria =="all").forEach((y,i) => console.log(`${i}. ${y.first_name} ${y.last_name} - ${y.email}`))
+    const [gender, value] = criteria.split('-');
+  JSON.parse(input).filter(x => x[gender] == value || criteria=='all')
+    .forEach((x,i)=> console.log(`${i}. ${x.first_name} ${x.last_name} - ${x.email}`))
   }
   
   // 0. Ardine Bassam - abassam0@cnn.com

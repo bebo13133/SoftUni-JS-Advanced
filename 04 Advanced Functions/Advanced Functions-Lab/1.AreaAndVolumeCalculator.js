@@ -1,6 +1,6 @@
 function areaCalculator(area, vol, input) {
 
-    return JSON.parse(input).map((y) => ({ area: area.call(y), volume: vol.call(y), }));
+    return JSON.parse(input).map((y) => ({ area: area.call(y), volume: vol.call(y),}));
 }
 
 function area() {

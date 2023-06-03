@@ -1,22 +1,24 @@
-// class Person {
-//     constructor(name,lastName){
-//         this.firstName=name;
-//         this.lastName = lastName
-//     }
-//     get fullName(){
-//         return `${this.firstName} ${this.lastName}`
-//     }
+// CLASS CONSTRUCTOR
+class Person {
+    constructor(name,lastName){
+        this.firstName=name;
+        this.lastName = lastName
+    }
+    get fullName(){
+        return `${this.firstName} ${this.lastName}`
+    }
 
-//     set fullName(input){
-//         let dataLine = input.split(" ")
-//         this.firstName = dataLine[0]
-//         this.lastName = dataLine[1]
-//     }
-// }
+    set fullName(input){
+        let dataLine = input.split(" ")
+        this.firstName = dataLine[0]
+        this.lastName = dataLine[1]
+    }
+}
 
+// ВАРИАНТ 2 - fUNCTION CONSTRUCTOR
 function Person (name, last){
     this.firstName = name;
-    this.lastName = last
+    this.lastName = last;
     Object.defineProperty(this,"fullName", {
         get: function(){
             return `${this.firstName} ${this.lastName}`
@@ -25,10 +27,9 @@ function Person (name, last){
             let dataLine = input.split(" ")
             this.firstName = dataLine[0]
             this.lastName = dataLine[1]
-        }
-    
+        } 
     })
-}
+};
 
 
 

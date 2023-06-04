@@ -28,3 +28,25 @@ function calculator() {
 
 const calculate = calculator(); calculate.init('#num1', '#num2', '#result');
 
+//Вариант 2 
+
+function calculator() {
+    let firsInput;
+    let secondInput;
+    let resultInpt;
+
+    function init(selector1, selector2, resultSelector) {
+        firsInput = document.querySelector(selector1)
+        secondInput = document.querySelector(selector2)
+        resultInpt = document.querySelector(resultSelector)
+    }
+    function add() {
+        resultInpt.value = Number(firsInput.value) + Number(secondInput.value)
+    }
+    function subtract() {
+        resultInpt.value = Number(firsInput.value) - Number(secondInput.value)
+    }
+    return { init, add, subtract }
+
+}
+const calculate = calculator(); calculate.init('#num1', '#num2', '#result');

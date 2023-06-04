@@ -13,6 +13,7 @@ function cars(input) {
         const [command, name, key, value] = line.split(" ");
         returnResult[command](name, key, value)
     });
+
 }
 
 

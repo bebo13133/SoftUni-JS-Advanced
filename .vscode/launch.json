@@ -26,6 +26,8 @@
         "type": "node",
         "request": "launch",
         "name": "Launch Program",
-        "program": "${file}"
+        "program": "${file}",
+        "cwd": "${workspaceFolder}",
+        "outputCapture": "std"
     }]
 }

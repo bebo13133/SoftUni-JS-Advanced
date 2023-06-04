@@ -26,7 +26,7 @@ function calculator() {
 }
 
 
-const calculate = calculator(); calculate.init('#num1', '#num2', '#result');
+
 
 //Вариант 2 
 
@@ -49,4 +49,4 @@ function calculator() {
     return { init, add, subtract }
 
 }
-const calculate = calculator(); calculate.init('#num1', '#num2', '#result');
+const  calculate = calculator(); calculate.init('#num1', '#num2', '#result');

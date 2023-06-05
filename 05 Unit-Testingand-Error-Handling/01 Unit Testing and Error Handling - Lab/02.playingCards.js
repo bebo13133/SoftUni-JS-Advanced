@@ -1,5 +1,5 @@
 function playingCard(face, suits) {
-    const faceCard = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "D", "K", "A"]
+    const faceCard = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
     const suitsCard = { S: "\u2660", H: "\u2665", D: "\u2666", C: "\u2663" }
 
     if (!faceCard.includes(face)) throw new Error('Invalid face ' + face)

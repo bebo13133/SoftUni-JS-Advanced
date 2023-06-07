@@ -15,16 +15,11 @@ function tickets(data, criteria) {
         return a;
     }, []);
 
-    const sortValid = (a,b) => {
+    const sortValidation = (a,b) => {
         return criteria == 'price' ? a - b : a[criteria].localeCompare(b[criteria]);
       }
-      return result.sort(sortValid);
+      return result.sort(sortValidation);
     }
-    // const sortValidation = (a, b) => {
-    //     return criteria == 'price' ? a - b : a[criteria].localCompare(b[criteria])
-
-    // }
-    // return result.sort(sortValidation)
 
 tickets(['Philadelphia|94.20|available',
     'New York City|95.99|available',

@@ -14,7 +14,7 @@ class Person {
         this.lastName = dataLine[1]
     }
 }
-
+// console.log(Object.defineProperties(Person))
 // ВАРИАНТ 2 - fUNCTION CONSTRUCTOR
 function Person (name, last){
     this.firstName = name;

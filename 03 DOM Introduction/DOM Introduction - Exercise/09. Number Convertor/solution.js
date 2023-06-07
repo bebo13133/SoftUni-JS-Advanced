@@ -1,4 +1,4 @@
-function solve() {
+
     function solve() {
 
         const inputNumber = document.getElementById('input');
@@ -26,4 +26,3 @@ function solve() {
             }
         }
     }
-}

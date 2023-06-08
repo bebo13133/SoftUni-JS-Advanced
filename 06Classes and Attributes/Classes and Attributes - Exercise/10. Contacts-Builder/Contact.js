@@ -49,7 +49,7 @@ class Contact {
     
         this.divTitle.appendChild(this.button);
         this.divInfo.appendChild(this.spanPhone);
-        this.divInfo.appendChild(this.spanEmail);``
+        this.divInfo.appendChild(this.spanEmail);
         this.article.appendChild(this.divTitle);
         this.article.appendChild(this.divInfo);
     

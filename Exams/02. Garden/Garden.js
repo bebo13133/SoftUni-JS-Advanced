@@ -48,7 +48,7 @@ class Garden {
     generateReport() {
         let result = [`The garden has ${this.spaceAvailable} free space left.`];
         let sortedPlants = this.plants.sort((a, b) => a.plantName.localeCompare(b.plantName)).map(x => x.plantName).join(", ");
-        let plantPrint = `Plants in the garden: ${sortedPlants},`
+        let plantPrint = `Plants in the garden: ${sortedPlants}`
         result.push(plantPrint);
        
        let storageString = this.storage

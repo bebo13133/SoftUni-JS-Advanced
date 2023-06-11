@@ -29,7 +29,6 @@ class WineSelection {
         if (wineSpace === undefined) throw new Error(`The wine, you're looking for, is not found.`)
         if (wineSpace.paid === false) throw new Error(`${wineName} need to be paid before open the bottle.`)
 
-
         let wineIndex = this.wines.findIndex(x => x.wineName === wineName)
         this.wines.splice(wineIndex, 1)
         return `You drank a bottle of ${wineName}.`

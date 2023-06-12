@@ -11,13 +11,12 @@ function solve() {
     let confirmList = document.querySelector('.confirm-list');
     let verification = document.getElementById('verification');
 
-    nextButton.addEventListener('click', onNext);
+    nextButton.addEventListener('click', nextBtn);
 
-    function onNext(e) {
+    function nextBtn(e) {
         e.preventDefault();
       
-        let date1 = new Date(dateInInput.value);
-        let date2 = new Date(dateOutInput.value);
+
         let firstName = firstNameInput.value
         let lastName = lastNameInput.value
         let dataIn = dateInInput.value
@@ -25,9 +24,11 @@ function solve() {
         let people = peopleCountInput.value
 
         if (firstNameInput.value === '' || lastNameInput.value === '' || dateInInput.value === '' ||
-            dateOutInput.value === '' || peopleCountInput.value === '' ||date1>=date2 ) {
+            dateOutInput.value === '' || peopleCountInput.value === '' ) {
             return;
         }
+
+
         let reservationInfo = reservation(firstName, lastName, dataIn, dataOut, people)
         infoReservation.appendChild(reservationInfo)
       
@@ -40,7 +41,7 @@ function solve() {
     }
     function reservation(firstName, lastName, dataIn, dataOut, people) {
         let liElement = document.createElement('li');
-        liElement.className = 'reservation-content';
+        liElement.classList.add("reservation-content")
 
 
         let article = document.createElement('article')
@@ -63,7 +64,7 @@ function solve() {
         article.appendChild(pPeople);
 
         let editBtn = document.createElement('button');
-        editBtn.classList.add('edit-btn');
+        editBtn.classList.add("edit-btn");
         editBtn.textContent = "Edit"
         editBtn.addEventListener('click', onEdit);
 
@@ -74,7 +75,7 @@ function solve() {
             dateOutInput.value = dataOut;
             peopleCountInput.value = people;
             let li = e.target.parentElement
-            nextButton.disabled = false
+            nextBtn.disabled = false
             li.remove()
         }
         let contBtn = document.createElement('button');
@@ -85,49 +86,43 @@ function solve() {
         liElement.appendChild(editBtn);
         liElement.appendChild(contBtn);
 
-        function onContinue(e) {
-            let currentLi = e.target.parentElement
-            let buttons = Array.from(currentLi.querySelectorAll('button'))
-            buttons.forEach(x => x.remove())
-            let liContinueElement = document.createElement('li');
-            liContinueElement.className = 'reservation-content';
-    
-            let articleContinieElement = document.createElement('article');
-            articleContinieElement = article;
-            liContinueElement.appendChild(articleContinieElement);
-    
-            let confirmtBtn = document.createElement('button');
-            confirmtBtn.className = 'confirm-btn';
-            confirmtBtn.textContent = 'Confirm';
-            liContinueElement.appendChild(confirmtBtn);
-    
-            let cancelBtn = document.createElement('button');
-            cancelBtn.className = 'cancel-btn';
-            cancelBtn.textContent = 'Cancel';
-            liContinueElement.appendChild(cancelBtn);
-            cancelBtn.addEventListener('click', onCancel);
-            liElement.remove();
-    
-            confirmList.appendChild(liContinueElement);
-    
-            confirmtBtn.addEventListener('click', onConfirm);
-        }
-        function onConfirm(e) {
-            let currentLi = e.target.parentElement
-            currentLi.remove()
-            verification.className = "reservation-confirmed"
-            verification.textContent = "Confirmed."
-            nextButton.disabled = false
-        }
-        function onCancel(e) {
-            let li = e.target.parentElement
-            li.remove()
-            verification.className = 'reservation-cancelled';
-            verification.textContent = 'Cancelled.';
-            nextButton.disabled = false
-        }
         return liElement;
     }
+
+    function onContinue(e) {
+        let currentLi = e.target.parentElement
+        let buttons = Array.from(currentLi.querySelectorAll('button'))
+        buttons.forEach(x => x.remove())
+        let confirmBtn = document.createElement('button')
+        confirmBtn.classList.add('confirm-btn');
+        confirmBtn.textContent = "Confirm"
+        confirmBtn.addEventListener('click', onConfirm);
+
+        let cancelBtn = document.createElement('button');
+        cancelBtn.classList.add('cancel-btn');
+        cancelBtn.textContent = "Cancel";
+        cancelBtn.addEventListener('click', onCancel);
+
+        currentLi.appendChild(confirmBtn);
+        currentLi.appendChild(cancelBtn);
+        confirmList.appendChild(currentLi)
+     
+    }
+    function onConfirm(e) {
+        let currentLi = e.target.parentElement
+        currentLi.remove()
+        verification.className = "reservation-confirmed"
+        verification.textContent = "Confirmed."
+        nextBtn.disabled = false
+    }
+    function onCancel(e) {
+        let li = e.target.parentElement
+        li.remove()
+        verification.className = 'reservation-cancelled';
+        verification.textContent = 'Cancelled.';
+        nextBtn.disabled = false
+    }
+
 }
 
 

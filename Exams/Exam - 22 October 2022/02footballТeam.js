@@ -4,9 +4,7 @@ class Footballteam {
         this.country = country
         this.invitedPlayers = []
     }
-
     newAdditions(footballPlayers) {
-
         let players = {}
         let result = []
 
@@ -80,9 +78,8 @@ class Footballteam {
      
      return printresult
     }
-
-
 }
+
 let fTeam = new Footballteam("Barcelona", "Spain");
 console.log(fTeam.newAdditions(["Kylian Mbappé/23/160", "Lionel Messi/35/50", "Pau Torres/25/52"]));
 console.log(fTeam.signContract("Kylian Mbappé/240"));
@@ -90,8 +87,4 @@ console.log(fTeam.ageLimit("Kylian Mbappé", 30));
 console.log(fTeam.transferWindowResult());
 
 
-// You successfully invite Kylian Mbappé, Lionel Messi, Pau Torres.
-// Lionel Messi is above age limit!
-// Kylian Mbappé will sign a full 5 years contract for Barcelona in Spain!
-// Pau Torres will sign a contract for 1 years with Barcelona in Spain!
-// Congratulations! You sign a contract with Kylian Mbappé for 240 million dollars
+

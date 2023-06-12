@@ -7,7 +7,7 @@ function solve() {
     const fromDate = document.getElementById('date-in');
     const toDate = document.getElementById('date-out');
     const peoplesCount = document.getElementById('people-count');
-    const reservationUl = document.querySelector('.info-list');
+    let infoReservation = document.querySelector('.info-list')
 
     let nextButton =document.getElementById('next-btn');
 
@@ -16,7 +16,7 @@ function solve() {
 
     function nextBtn(event) {
 console.log("Helllooo" )
-          //e.preventFefault();
+          e.preventFefault();
 
         // if (!firstName.value || !lastName.value || !fromDate.value || !toDate.value || !peoplesCount.value) {
         //     return;
@@ -26,26 +26,9 @@ console.log("Helllooo" )
         let inDate = fromDate.value
         let outDate = toDate.value
         let people = peoplesCount.value
-
-    let reservationList = listCreated(fName, lName, inDate, outDate, people);
-
-    reservationUl.appendChild(reservationList);
-
-        fName = '';
-        lName = '';
-        inDate = '';
-        outDate = '';
-        people = '';
-        nextBtn.disabled = true
-
-    }
-
-    
-    function listCreated(fName, lName, inDate, outDate, people) {
-
-
+        
         let li = document.createElement("li");
-        li.classList.add('reservation-content');
+        li.className = 'reservation-content';
 
         let articleElement = document.createElement('article');
         li.appendChild(articleElement);
@@ -79,8 +62,26 @@ console.log("Helllooo" )
         
         li.appendChild(editBtn);
         li.appendChild(continueBtn);
-        return li;
+
+   // let reservationList = listCreated(fName, lName, inDate, outDate, people);
+
+   infoReservation.appendChild(li);
+
+        // fName = '';
+        // lName = '';
+        // inDate = '';
+        // outDate = '';
+        // people = '';
+        // nextBtn.disabled = true
+
     }
+
+    
+    // function listCreated(fName, lName, inDate, outDate, people) {
+
+
+    //     return li;
+    // }
 
 }
 

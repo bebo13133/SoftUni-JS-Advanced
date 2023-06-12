@@ -25,6 +25,7 @@ function solve() {
         if (!firstName.value || !lastName.value || !countInput.value || !dateInput.value || !daysInput.value) {
             return
         }
+
         let reviewTickets = creatElement(firstnameValue, lastNameValue, countInputValue, dateInputValue, daysInputValue)
         ticketPreview.appendChild(reviewTickets);
         firstName.value = "";
@@ -63,11 +64,13 @@ function solve() {
         let contBtn = document.createElement('button');
         contBtn.className='continue-btn'
         contBtn.textContent = "Continue";
-         
+        
+
+  
         ticketLi.appendChild(articleEl)
         ticketLi.appendChild(editBtn);
         ticketLi.appendChild(contBtn);
-        contBtn.addEventListener('click', onContinue);
+
         editBtn.addEventListener('click', (e)=>{
      
             let liThis = e.target.parentElement;
@@ -80,13 +83,14 @@ function solve() {
             nextBtn.disabled = false;
             liThis.remove();
         })
-       
+        contBtn.addEventListener('click', onContinue);
+        nextBtn.disabled = true
         return ticketLi;
     }
+
     function onContinue(e) {
         let liElement = e.target.parentElement;
-        liElement.classList.remove('ticket')
-        liElement.className = 'ticket-content'
+        liElement.classList.add('ticket-content')
         let buttons = Array.from(liElement.querySelectorAll('button'));
         buttons.forEach(x => x.remove());
 
@@ -96,20 +100,29 @@ function solve() {
         confirmBtn.className= 'confirm-btn'
         confirmBtn.textContent = "Confirm"
         confirmBtn.addEventListener('click', onConfirm)
+
+      
+
         let cancelBtn = document.createElement('button')
         cancelBtn.className='cancel-btn'
         cancelBtn.textContent = "Cancel"
 
         cancelBtn.addEventListener('click', onCancel)
+        liElement.appendChild(confirmBtn);
+        liElement.appendChild(cancelBtn);
         confirmTicket.appendChild(liElement);
-        confirmTicket.appendChild(confirmBtn);
-        confirmTicket.appendChild(cancelBtn);
+        
     }
+
+
+
 function onCancel(e){   
     let li = e.target.parentElement
       li.remove();
     nextBtn.disabled = false
 }
+
+
     function onConfirm(e) {
         const body = document.getElementById('body')
         const h1Text = document.createElement('h1')
@@ -125,10 +138,10 @@ function onCancel(e){
         body.appendChild(backBth)
         backBth.addEventListener('click', (e) => {
             location.reload();
-            nextBtn.disabled = false;
         })
     }
-   
+
+    
 }
 
 

@@ -1,8 +1,7 @@
-//SOLUTION 94/100
+//SOLUTION 1
 
 window.addEventListener('load', solve);
 function solve() {
-
     const firstName = document.getElementById('first-name')
     const lastName = document.getElementById("last-name");
     const countInput = document.getElementById('people-count');
@@ -64,9 +63,7 @@ function solve() {
         let contBtn = document.createElement('button');
         contBtn.className='continue-btn'
         contBtn.textContent = "Continue";
-        
-
-  
+      
         ticketLi.appendChild(articleEl)
         ticketLi.appendChild(editBtn);
         ticketLi.appendChild(contBtn);
@@ -87,42 +84,32 @@ function solve() {
         nextBtn.disabled = true
         return ticketLi;
     }
-
     function onContinue(e) {
         let liElement = e.target.parentElement;
         liElement.classList.add('ticket-content')
         let buttons = Array.from(liElement.querySelectorAll('button'));
         buttons.forEach(x => x.remove());
-
-       
+    
 
         let confirmBtn = document.createElement('button')
         confirmBtn.className= 'confirm-btn'
         confirmBtn.textContent = "Confirm"
         confirmBtn.addEventListener('click', onConfirm)
 
-      
-
         let cancelBtn = document.createElement('button')
         cancelBtn.className='cancel-btn'
         cancelBtn.textContent = "Cancel"
-
         cancelBtn.addEventListener('click', onCancel)
         liElement.appendChild(confirmBtn);
         liElement.appendChild(cancelBtn);
         confirmTicket.appendChild(liElement);
         
     }
-
-
-
 function onCancel(e){   
     let li = e.target.parentElement
       li.remove();
     nextBtn.disabled = false
 }
-
-
     function onConfirm(e) {
         const body = document.getElementById('body')
         const h1Text = document.createElement('h1')
@@ -140,12 +127,11 @@ function onCancel(e){
             location.reload();
         })
     }
-
-    
+   
 }
 
 
-//!SOLUTION 100/100
+//!SOLUTION 2
 
 
 

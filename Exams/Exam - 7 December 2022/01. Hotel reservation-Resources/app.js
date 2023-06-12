@@ -75,7 +75,7 @@ function solve() {
             dateOutInput.value = dataOut;
             peopleCountInput.value = people;
             let li = e.target.parentElement
-            nextBtn.disabled = false
+            nextButton.disabled = false
             li.remove()
         }
         let contBtn = document.createElement('button');
@@ -113,14 +113,14 @@ function solve() {
         currentLi.remove()
         verification.className = "reservation-confirmed"
         verification.textContent = "Confirmed."
-        nextBtn.disabled = false
+        nextButton.disabled = false
     }
     function onCancel(e) {
         let li = e.target.parentElement
         li.remove()
         verification.className = 'reservation-cancelled';
         verification.textContent = 'Cancelled.';
-        nextBtn.disabled = false
+        nextButton.disabled = false
     }
 
 }

@@ -92,7 +92,7 @@ function solve() {
     function onContinue(e) {
         let currentLi = e.target.parentElement
         let buttons = Array.from(currentLi.querySelectorAll('button'))
-        buttons.forEach(x => x.remove())
+        buttons.forEach(x => x.remove());
         let confirmBtn = document.createElement('button')
         confirmBtn.classList.add('confirm-btn');
         confirmBtn.textContent = "Confirm"

@@ -19,9 +19,7 @@ class ArtGallery {
         let findGuest = this.guests.find(x => x.guestName === guestName);
         if (findGuest) throw new Error(`${guestName} has already been invited.`)
 
-
         if (!findGuest) {
-
             if (personality === 'Vip') {
                 this.guests.push({ guestName, points: 500, purchaseArticle: 0 })
             } else if (personality === 'Middle') {
@@ -29,10 +27,7 @@ class ArtGallery {
             } else  {
                 this.guests.push({ guestName, points: 50, purchaseArticle: 0});
             }
-            
-
-
-            
+                   
         }
         return `You have successfully invited ${guestName}!`
     }

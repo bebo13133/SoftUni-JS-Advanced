@@ -6,14 +6,11 @@ class OnlineShop {
         this.sale = 0
     }
     loadingStore(product, quantity, spaceRequired) {
-
         if (spaceRequired > this.warehouseSpace) throw new Error('Not enough space in the warehouse.')
-
         this.products.push(product, quantity)
         this.warehouseSpace -= spaceRequired
         return `The ${product} has been successfully delivered in the warehouse.`
     }
-
     quantityCheck(product, minimalQuantity) {
 
         if (!this.products.includes(product)) throw new Error(`There is no ${product} in the warehouse.`)
@@ -31,17 +28,12 @@ class OnlineShop {
     }
     sellProduct(product) {
         if (!this.products.includes(product)) throw new Error(`There is no ${product} in the warehouse.`)
-
         let indexProduct = this.products.indexOf(product)
-      
         this.products[indexProduct + 1] -= 1
-
         this.sale++
         this.sales.push(product, 1)
-
         return `The ${product} has been successfully sold.`
     }
-
     revision() {
         if (this.sale === 0) throw new Error(`There are no sales today!`)
         let printResult = ""
@@ -50,8 +42,6 @@ class OnlineShop {
         }
         return `You sold ${this.sale} products today!\nProducts in the warehouse:${printResult}`
     }
-
-
 }
 // const myOnlineShop = new OnlineShop(500)
 // console.log(myOnlineShop.loadingStore('headphones', 10, 200));

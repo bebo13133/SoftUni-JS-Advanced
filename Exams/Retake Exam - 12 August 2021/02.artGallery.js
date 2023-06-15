@@ -23,15 +23,16 @@ class ArtGallery {
         if (!findGuest) {
 
             if (personality === 'Vip') {
-                this.guests.push({ guestName, points: 500, purchaseArticle: 0 });
-
+                this.guests.push({ guestName, points: 500, purchaseArticle: 0 })
             } else if (personality === 'Middle') {
-                this.guests.push({ guestName, points: 250, purchaseArticle: 0 });
-
-            } else {
-                this.guests.push({ guestName, points: 50, purchaseArticle: 0 });
-
+                this.guests.push({ guestName, points: 250, purchaseArticle: 0})
+            } else  {
+                this.guests.push({ guestName, points: 50, purchaseArticle: 0});
             }
+            
+
+
+            
         }
         return `You have successfully invited ${guestName}!`
     }

@@ -33,3 +33,12 @@ const bookSelection = {
     return resultArr;
   },
 };
+let newArr = bookSelection;
+console.log(newArr.isItAffordable(2,4))
+console.log(newArr.isItAffordable(5,4))
+console.log(newArr.isItAffordable(4,4))
+console.log(newArr.isItAffordable(1,2))
+
+
+
+module.exports = bookSelection

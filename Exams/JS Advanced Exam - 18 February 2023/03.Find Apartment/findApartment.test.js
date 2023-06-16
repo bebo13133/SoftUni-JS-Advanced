@@ -43,6 +43,7 @@ describe('test findAprtment functionality', ()=>{
             it("Test5 Invalid input", ()=>{
                 expect(findNewApartment.isItAffordable(10, 11)).to.equal(`You can afford this home!`)
                 expect(findNewApartment.isItAffordable(12, 11)).to.equal(`You don't have enough money for this house!`)
+                
             })
     })
 

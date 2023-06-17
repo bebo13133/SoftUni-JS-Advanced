@@ -46,9 +46,9 @@ class JobOffers {
     if (this.jobCandidates.length === 0) throw new Error("Candidate Database is empty!");
 
     let p = `Candidates list:`
-    let sorted = this.jobCandidates.sort((a, b) => a.name.localeCompare(b.name))
-      .map(c => p += `\n${c.name}-${c.yearsExperience}`)
-    return p
+    p+= this.jobCandidates.sort((a, b) => a.name.localeCompare(b.name))
+      .map(c => `\n${c.name}-${c.yearsExperience}`)
+    return p;
   }
 }
 // let Jobs = new JobOffers ("Google", "Strategy Analyst");
@@ -66,6 +66,7 @@ console.log(Jobs.salaryBonus("John Doe"));
 console.log(Jobs.candidatesDatabase());
 
 // 2 Вариант : 
+
 class JobOffers {
   constructor(employer, position) {
     this.employer = employer;

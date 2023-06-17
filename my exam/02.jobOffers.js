@@ -6,8 +6,7 @@ class JobOffers {
   }
   jobApplication(candidates) {
     let names = candidates.reduce((acc, line) => {
-      let [name, education, yearsExperience] = line.split('-')
-      yearsExperience = Number(yearsExperience)
+      let [name, education, yearsExperience] = line.split('-'); yearsExperience = Number(yearsExperience)
       let findName = this.jobCandidates.find(x => x.name === name)
       if (findName) if (findName.yearsExperience < yearsExperience) findName.yearsExperience = yearsExperience;
       if (!findName) acc.push(name), this.jobCandidates.push({ name, education, yearsExperience })
@@ -22,8 +21,7 @@ class JobOffers {
         if (jobCandidate.yearsExperience < minExperience) {
           throw new Error(`${name} does not have enough experience as ${this.position}, minimum requirement is ${minExperience} years.`);
         }
-        jobCandidate.yearsExperience = "hired";
-        return `Welcome aboard, our newest employee is ${name}.`;
+        jobCandidate.yearsExperience = "hired"; return `Welcome aboard, our newest employee is ${name}.`;
       }
     }
     throw new Error(`${name} is not in the candidates list!`);

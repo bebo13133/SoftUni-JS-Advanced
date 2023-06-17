@@ -55,7 +55,7 @@ console.log(Jobs.salaryBonus("Jordan Cole"));
 console.log(Jobs.salaryBonus("John Doe"));
 console.log(Jobs.candidatesDatabase());
 
-// 2 Вариант :
+// 2 Вариант : 100/100 на изпита
 
 // class JobOffers {
 //   constructor(employer, position) {

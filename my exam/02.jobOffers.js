@@ -6,8 +6,8 @@ class JobOffers {
   }
   jobApplication(candidates) {
     let names = candidates.reduce((acc, line) => {
-      let [name, education, yearsExperience] = line.split('-'); yearsExperience = Number(yearsExperience)
-      let findName = this.jobCandidates.find(x => x.name === name)
+      let [name, education, yearsExperience] = line.split('-'); yearsExperience = Number(yearsExperience);
+      let findName = this.jobCandidates.find(x => x.name === name);
       if (findName) if (findName.yearsExperience < yearsExperience) findName.yearsExperience = yearsExperience;
       if (!findName) acc.push(name), this.jobCandidates.push({ name, education, yearsExperience })
       return acc;
@@ -27,7 +27,7 @@ class JobOffers {
     throw new Error(`${name} is not in the candidates list!`);
   }
   salaryBonus(name) {
-    const findName = this.jobCandidates.find(x => x.name === name)
+    const findName = this.jobCandidates.find(x => x.name === name);
     if (!findName) throw new Error(`${name} is not in the candidates list!`);
     const salary = findName.education === "Bachelor" ? "$50,000 per year" : findName.education === "Master" ? "$60,000 per year"
       : "$40,000 per year";
@@ -37,7 +37,7 @@ class JobOffers {
     if (this.jobCandidates.length === 0) throw new Error("Candidate Database is empty!");
     let p = `Candidates list:`
     p += this.jobCandidates.sort((a, b) => a.name.localeCompare(b.name))
-      .map(c => `\n${c.name}-${c.yearsExperience}`)
+      .map(c => `\n${c.name}-${c.yearsExperience}`);
     return p;
   }
 }

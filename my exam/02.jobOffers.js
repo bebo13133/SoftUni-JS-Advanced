@@ -33,14 +33,14 @@ class JobOffers {
       : "$40,000 per year";
     return `${name} will sign a contract for ${this.employer}, as ${this.position} with a salary of ${salary}!`
   }
-  candidatesDatabase() {
-    if (this.jobCandidates.length === 0) throw new Error("Candidate Database is empty!");
-    let p = `Candidates list:`
-    p += this.jobCandidates.sort((a, b) => a.name.localeCompare(b.name))
-      .map(c => `\n${c.name}-${c.yearsExperience}`);
-    return p;
-  }
-}
+  candidatesDatabase(){
+          if(this.jobCandidates.length === 0 ) throw new Error("Candidate Database is empty!")
+          let p = `Candidates list:`
+          let sorted = this.jobCandidates.sort((a,b)=>a.name.localeCompare(b.name)).forEach(c => p+=`\n${c.name}-${c.yearsExperience}`)
+          return p
+        }
+    }
+
 // let Jobs = new JobOffers ("Google", "Strategy Analyst");
 //  console.log(Jobs.jobApplication(["John Doe-Bachelor-10", "Peter Parker-Master-5", "Daniel Jones- Bachelor-18"]));
 //  console.log(Jobs.jobOffer("John Doe-8"));

@@ -4,12 +4,12 @@ window.addEventListener('load', solve);
 function solve() {
         const [carModelInput, carYearInput, partNameInput, partNumberInput, conditionInput, imgSrc, confirm, ulInfo, nextBtn] = 
         ['#car-model', '#car-year', '#part-name', '#part-number', '#condition',
-                 '#complete-img', '.confirm-list', '.info-list', '#next-btn'].map(selector => document.querySelector(selector));
+        '#complete-img', '.confirm-list', '.info-list', '#next-btn'].map(selector => document.querySelector(selector));
         nextBtn.addEventListener('click', onNext)
         function onNext(e) {
                 e.preventDefault()
                 const [carModel, carYear, partName, partNumber, condition] = [
-                        carModelInput, carYearInput, partNameInput, partNumberInput, conditionInput].map(input => input.value);
+                carModelInput, carYearInput, partNameInput, partNumberInput, conditionInput].map(input => input.value);
                 const isValidInput = [carModel, carYear, partName, partNumber, condition].filter(value => value === "").length === 0 && carYear >= 1980 && carYear <= 2023;
                 if (!isValidInput) return;
                 let partInfo = onCreat(carModel, carYear, partName, partNumber, condition)

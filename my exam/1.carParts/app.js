@@ -4,7 +4,7 @@ window.addEventListener('load', solve);
 function solve() {
         const [carModelInput, carYearInput, partNameInput, partNumberInput, conditionInput, imgSrc, confirm, ulInfo, nextBtn] =
                 ['#car-model', '#car-year', '#part-name', '#part-number', '#condition',
-                        '#complete-img', '.confirm-list', '.info-list', '#next-btn'].map(selector => document.querySelector(selector));
+                '#complete-img', '.confirm-list', '.info-list', '#next-btn'].map(selector => document.querySelector(selector));
         nextBtn.addEventListener('click', onNext)
         function onNext(e) {
                 e.preventDefault()

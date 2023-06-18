@@ -37,7 +37,7 @@ class JobOffers {
           if(this.jobCandidates.length === 0 ) throw new Error("Candidate Database is empty!")
           let p = `Candidates list:`
           let sorted = this.jobCandidates.sort((a,b)=>a.name.localeCompare(b.name)).forEach(c => p+=`\n${c.name}-${c.yearsExperience}`)
-          return p
+          return p;
         }
     }
 

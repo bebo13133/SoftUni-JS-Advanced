@@ -1,10 +1,10 @@
 function lastKNumbersSequence2(n, k) {
-    let newArrr = [1]
+    let newArr = [1]
     for (let i = 0; i < n - 1; i++) {
-        let sum = newArrr.length < k ? newArrr : newArrr.slice(newArrr.length - k)
-        newArrr.push(sum.reduce((a, b) => a + b));
+        let sum = newArr.length < k ? newArr : newArr.slice(newArr.length - k)
+        newArr.push(sum.reduce((a, b) => a + b));
     }
-    return (newArrr)
+    return (newArr)
 }
 lastKNumbersSequence2(6, 3)
 
